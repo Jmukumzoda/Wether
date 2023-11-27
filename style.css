@@ -114,6 +114,9 @@ form button {
 
 .sunset {
   width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
 .text_wether h2 {
@@ -289,4 +292,16 @@ input[type=checkbox]:checked::before {
   .wrap {
     transform: translate(-1%);
   }
+}
+
+.Sunset {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Sunrise {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

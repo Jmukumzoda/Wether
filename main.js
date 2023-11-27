@@ -1,5 +1,6 @@
 import axios from "axios";
-import { day2_h4, day2_img, day2_p, day3_h4, day3_img, day3_p, day4_h4, day4_img, day4_p, day5_h4, day5_img, day5_p, day6_h4, day6_img, day6_p, ip_7days, toggle, wrap, form, h2, h1, p, h2_wether, img, h3_wether, ul_li, humidity, pressure, uv, inp, ip, hours_time1_img, hours_time1_p, hours_time1_h4, hours_time2_img, hours_time2_p, hours_time2_h4, hours_time3_img, hours_time3_p, hours_time3_h4, hours_time4_img, hours_time4_p, hours_time4_h4, time, wether_cloud, container, hours_wether } from "./variables";
+import { Sunrise, Sunset, day2_h4, day2_img, day2_p, day3_h4, day3_img, day3_p, day4_h4, day4_img, day4_p, day5_h4, day5_img, day5_p, day6_h4, day6_img, day6_p, ip_7days, toggle, wrap, form, h2, h1, p, h2_wether, img, h3_wether, ul_li, humidity, pressure, uv, inp, ip, hours_time1_img, hours_time1_p, hours_time1_h4, hours_time2_img, hours_time2_p, hours_time2_h4, hours_time3_img, hours_time3_p, hours_time3_h4, hours_time4_img, hours_time4_p, hours_time4_h4, time, wether_cloud, container, hours_wether } from "./variables";
+console.log(Sunrise, Sunset);
 
 toggle.onclick = () => {
   wrap.classList.toggle('class_black')
@@ -12,7 +13,10 @@ toggle.onclick = () => {
 
 form.onsubmit = (e) => {
   e.preventDefault()
-
+  if (inp.value === "") {
+    alert("Please enter")
+    return
+  }
   axios.get(ip + "&q=" + inp.value)
     .then(res => {
       console.log(res);
@@ -60,5 +64,8 @@ form.onsubmit = (e) => {
       hours_time4_h4.innerHTML = res.data.forecast.forecastday[1].hour[21].time.slice(10)
       hours_time4_img.src = res.data.forecast.forecastday[1].hour[21].condition.icon
       hours_time4_p.innerHTML = `${res.data.forecast.forecastday[1].hour[21].temp_c + '°'}C`
+      Sunrise.innerHTML = res.data.forecast.forecastday[0].astro.sunrise
+      Sunset.innerHTML = res.data.forecast.forecastday[0].astro.sunset
+
     })
 }

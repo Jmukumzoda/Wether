@@ -48,3 +48,6 @@ export let time = document.querySelector('.time')
 export let wether_cloud = document.querySelector('.wether_cloud')
 export let container = document.querySelector('.container')
 export let hours_wether = document.querySelector('.hours_wether')
+export let Sunrise = document.querySelector('.sunset .Sunrise p')
+export let Sunset = document.querySelector('.sunset .Sunset p')
+
